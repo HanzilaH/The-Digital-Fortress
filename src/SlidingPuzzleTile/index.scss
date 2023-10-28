@@ -1,0 +1,20 @@
+.tile {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 7rem;
+    line-height: 10rem;
+    height: 10rem;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 10rem;
+  }
+
+  .board-row:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+  
