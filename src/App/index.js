@@ -3,11 +3,16 @@ import {
     RouterProvider,
     createBrowserRouter
 } from "react-router-dom";
+import MathsQuestion from "../MathsQuestion";
 
 const routes = [
     {
         path: "/test",
         element: <div>Test</div>
+    },
+    {
+        path: "/math",
+        element: <MathsQuestion />
     }
 ]
 

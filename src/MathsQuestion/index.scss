@@ -1,0 +1,159 @@
+body {
+    background-color: #01a9a4;
+}
+
+.header{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2f2626;
+    width: calc(90% - 1.5em);
+    height: calc(50% - 1.5em);
+    background-color: #72cccb;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    margin: 50px auto 50px auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    
+}
+
+.maths-question{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2f2626;
+    width: calc(90% - 1.5em);
+    height: 300px;
+    background-color: #72cccb;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    margin: 50px auto 50px auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    
+}
+
+.footer{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2f2626;
+    width: calc(90% - 1.5em);
+    height: 100px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    margin: 50px auto 50px auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    
+
+}
+
+.label-style {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    padding: 14px 16px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+.label-style:hover,
+.label-style:focus-within,
+.label-style:active {
+    background: #01a9a3be;
+}
+  
+  .label-text {
+    color: #2f2626;
+    margin-left: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 900;
+    transition: .3s;
+  }
+
+  @keyframes flickerAnimation {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .flicker {
+    animation: flickerAnimation 0.1s infinite;
+  }
+
+  .button-style {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+   }
+   
+   .button-style:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #b1dae7;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+   }
+   
+   .button-style span {
+    position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #2f2626;
+   }
+   
+   .button-style svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #234567;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+   }
+   
+   .button-style:hover:before {
+    width: 100%;
+    background: #b1dae7;
+    cursor: pointer;
+   }
+   
+   .button-style:hover svg {
+    transform: translateX(0);
+   }
+   
+   .button-style:active {
+    transform: scale(0.95);
+   }
+
+   input[type="radio"]{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+   }
+
+   
+
