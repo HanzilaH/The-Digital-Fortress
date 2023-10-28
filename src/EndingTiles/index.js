@@ -3,7 +3,7 @@ import { StrictModeDroppable } from './StrictModeDroppable';
 import { useState } from 'react';
 import './index.scss';
 
-const finalSpaceCharacters = [
+const rickArray = [
     {
         id: 'tile0',
         hint: 'R',
@@ -23,8 +23,9 @@ const finalSpaceCharacters = [
         id: 'tile3',
         hint: 'K',
         name: '01001011',
-    },
-    {
+    }
+];
+const rolledArray = [{
         id: 'tile4',
         hint: 'R',
         name: '01010010',
@@ -56,18 +57,47 @@ const finalSpaceCharacters = [
     }
   ]
 
-
-
-
 const shuffleArray = (array) => {
     const shuffledArray = [...array];
     return shuffledArray.sort(() => Math.random() - 0.5);
 }
-  
-const shuffledCharacters = shuffleArray(finalSpaceCharacters);
 
-const EndingTiles = () => {
-    const [characters, updateCharacters] = useState(finalSpaceCharacters);
+const areArraysEqual = (arr1, arr2) => {
+    if (arr1.length !== arr2.length) {
+      return false;
+    }
+  
+    for (let i = 0; i < arr1.length; i++) {
+      // Compare the serial (name) property
+      if (arr1[i].name !== arr2[i].name) {
+        return false;
+      }
+    }
+  
+    return true;
+  }
+
+const checkDone = (arr1, arr2) => {
+    if (arr1.length == 4 && areArraysEqual(arr1, arr2)) {
+        rickBool = true;
+    }
+    else if (areArraysEqual(arr1, arr2)) {
+        rolledBool = true;
+    }
+
+    if (rickBool && rolledBool) {
+        console.log('solved');
+        // Next Component
+    }
+}
+  
+const shuffledRickArray = shuffleArray(rickArray);
+const shuffledRolledArray = shuffleArray(rolledArray);
+let rickBool = false;
+let rolledBool = false;
+
+const Row = ({ array, originalArray }) => {
+    const [characters, updateCharacters] = useState(array);
 
     const handleOnDragEnd = (result) => {
         if (!result.destination) return;
@@ -77,13 +107,12 @@ const EndingTiles = () => {
         items.splice(result.destination.index, 0, reorderedItem);
 
         updateCharacters(items);
-        console.log(items);
+
+        checkDone(items, originalArray);
     }
 
     return (
-        <div className="EndingTiles">
         <header className="EndingTiles-header">
-            <h1>Final Stage</h1>
             <DragDropContext onDragEnd={handleOnDragEnd}>
                 <StrictModeDroppable droppableId="characters" direction="horizontal">
                     {(provided) => (
@@ -107,11 +136,22 @@ const EndingTiles = () => {
                 </StrictModeDroppable>
             </DragDropContext>
         </header>
-        <p>
-            Decode the code and rearrange the binaries to spell the code
-        </p>
-        </div>
     );
 };
+
+const EndingTiles = () => {
+    return (
+        <div className="EndingTiles">
+            <h1>Final Stage</h1>
+            <div>
+                <Row array = { shuffledRickArray } originalArray = { rickArray } />
+                <Row array = { shuffledRolledArray } originalArray = { rolledArray } />
+            </div>
+            <p>
+                Decode the code and rearrange the binaries to spell the code
+            </p>
+        </div>
+    )
+}
 
 export default EndingTiles;
