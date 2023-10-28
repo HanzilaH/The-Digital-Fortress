@@ -17,7 +17,7 @@ const FakeCaptcha = () => {
     }
 
     return (
-        <PuzzleTemplate isSolved={true} puzzle={
+        <PuzzleTemplate title="Are you a robot?" nextStage="/test" alwaysShowButtons={true} isSolved={!isChecked} puzzle={
             <div className="container">
                 <div className="row">
                     <div className="fake-captcha-captcha col-4 mx-auto">
@@ -30,7 +30,7 @@ const FakeCaptcha = () => {
                             </label>
                         </div>
                         <div className="fake-captcha-text">
-                            I'm not a robot
+                            I'm a robot
                         </div>
                         <div className="fake-captcha-logo">
                             <img src={captchaLogo} alt="reCAPTCHA" />
