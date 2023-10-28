@@ -11,6 +11,7 @@ import ReactionTime from "../ReactionTimeTest";
 import SlidingPuzzle from "../SlidingPuzzle";
 import ConvolutedMaths from "../ConvolutedMaths";
 import LandingPage from "../LandingPage";
+import Maze from "../Maze";
 
 const routes = [
     {
@@ -44,6 +45,10 @@ const routes = [
     {
         path: "/landingPage",
         element: <LandingPage/>
+    },
+    {
+        path: "/maze",
+        element: <Maze/>
     }
 ]
 
