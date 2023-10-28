@@ -21,29 +21,60 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
     return (
 
         <>
+
+        <div className="text-center template-top">
+
             <h1 className="puzzle-template-title">{title}</h1>
+        </div>
+
+        <div className="d-flex justify-content-center">
+
+            <div className="template-card">
+
             {puzzle}
+
+            </div>
+        </div>
+
+        <div className="template-footer d-flex justify-content-center">
+
             {(alwaysShowButtons || isSolved) && (
                 isSolved ? (
+                    <>
+                    
+
                     <div>
                         <Link to="/">
                             <button>Restart</button>
                         </Link>
+
+                    </div>
+                    <div>
                         <Link to={nextStage}>
                             <button>Next Stage</button>
                         </Link>
                     </div>
+                    </>
                 ) : (
+                    <>
+                    
                     <div>
                         <Link to="/">
                             <button>Restart</button>
                         </Link>
+                        </div>
+                    <div>
                         <Link to="/">
                             <button>Next Stage</button>
                         </Link>
                     </div>
+                    </>
+
                 )
             )}
+
+        </div>
+
         </>
 
     )
