@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./index.sccs";
+import "./index.scss";
 
 /**
  * General puzzle template
