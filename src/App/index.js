@@ -3,6 +3,7 @@ import {
     RouterProvider,
     createBrowserRouter
 } from "react-router-dom";
+import MathsQuestion from "../MathsQuestion";
 import PuzzleTemplate from "../PuzzleTemplate";
 import FakeCaptcha from "../FakeCaptcha";
 
@@ -14,6 +15,10 @@ const routes = [
     {
         path: "/fakeCaptcha",
         element: <FakeCaptcha />
+    },
+    {
+        path: "/math",
+        element: <MathsQuestion />
     }
 ]
 
