@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./index.scss";
 
 /**
@@ -18,65 +18,50 @@ import "./index.scss";
  */
 const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false, isSolved = false, puzzle }) => {
 
+    const navigate = useNavigate();
+
+    const handleClick = (e) => {
+
+        navigate(e);
+
+    }
+
     return (
-
         <>
-
-        <div className="text-center template-top">
-
-            <h1 className="puzzle-template-title">{title}</h1>
-        </div>
-
-        <div className="d-flex justify-content-center">
-
-            <div className="template-card">
-
-            {puzzle}
-
+            <div className="text-center template-top">
+                <h1 className="puzzle-template-title">{title}</h1>
             </div>
-        </div>
 
-        <div className="template-footer d-flex justify-content-center">
+            <div className="d-flex justify-content-center">
+                <div className="template-card">
+                    {puzzle}
+                </div>
+            </div>
 
-            {(alwaysShowButtons || isSolved) && (
-                isSolved ? (
-                    <>
-                    
-
-                    <div>
-                        <Link to="/">
-                            <button>Restart</button>
-                        </Link>
-
-                    </div>
-                    <div>
-                        <Link to={nextStage}>
-                            <button>Next Stage</button>
-                        </Link>
-                    </div>
-                    </>
-                ) : (
-                    <>
-                    
-                    <div>
-                        <Link to="/">
-                            <button>Restart</button>
-                        </Link>
-                        </div>
-                    <div>
-                        <Link to="/">
-                            <button>Next Stage</button>
-                        </Link>
-                    </div>
-                    </>
-
-                )
-            )}
-
-        </div>
-
+            <div className="template-footer d-flex justify-content-center">
+                {(alwaysShowButtons || isSolved) && (
+                    isSolved ? (
+                        <>
+                            <div>
+                                <button onClick={() => {handleClick("/")}}>Restart</button>
+                            </div>
+                            <div>
+                                <button onClick={() => {handleClick(nextStage)}}>Next Stage</button>
+                            </div>
+                        </>
+                        ) : (
+                        <>
+                            <div>
+                                <button onClick={() => {handleClick("/")}}>Restart</button>
+                            </div>
+                            <div>
+                                <button onClick={() => {handleClick("/")}}>Next Stage</button>
+                            </div>
+                        </>
+                    )
+                )}
+            </div>
         </>
-
     )
 
 }
