@@ -1,10 +1,11 @@
 // start flashlight css
 
 .flashlight {
-    // cursor: none;
+    cursor: none;
     width: 100vw;
     height: 100vh;
     z-index: -2;
+    background-color: #01a9a4;
 }
 
 .flashlight:before {
@@ -40,6 +41,10 @@
 // }
 
 .bouncingRestartButton {
+    border-radius: 12px;
+    margin: 2% 4%;
+    background-color: #01a9a4;
+
     display: block;
     position: absolute;
     --x-animation-time: 2.5s;
@@ -48,11 +53,17 @@
     -moz-animation: moveX var(--x-animation-time) linear 0s infinite alternate, moveY var(--y-animation-time) linear 0s infinite alternate;
     -o-animation: moveX var(--x-animation-time) linear 0s infinite alternate, moveY var(--y-animation-time) linear 0s infinite alternate;
     animation: moveX var(--x-animation-time) linear 0s infinite alternate, moveY var(--y-animation-time) linear 0s infinite alternate;
-    z-index: -1;
+    z-index: 10;
     white-space: nowrap;
+    mix-blend-mode: difference; 
 }
 
 .bouncingNextStageButton {
+
+    border-radius: 12px;
+    margin: 2% 4%;
+    background-color: #01a9a4;
+
     display: block;
     position: absolute;
     --x-animation-time: 2.5s;
@@ -61,8 +72,10 @@
     -moz-animation: moveY var(--y-animation-time) linear 0s infinite alternate-reverse, moveX var(--x-animation-time) linear 0s infinite alternate;
     -o-animation: moveY var(--y-animation-time) linear 0s infinite alternate-reverse, moveX var(--x-animation-time) linear 0s infinite alternate;
     animation: moveY var(--y-animation-time) linear 0s infinite alternate-reverse, moveX var(--x-animation-time) linear 0s infinite alternate;
-    z-index: -1;
+    z-index: 2;
     white-space: nowrap;
+    mix-blend-mode: difference; 
+
 }
 
 @-webkit-keyframes moveX {

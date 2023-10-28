@@ -8,10 +8,10 @@ const Flashlight = () => {
     let [cursorX, setCursorX] = useState(0);
     let [cursorY, setCursorY] = useState(0);
     let [animationTimes, setAnimationTimes] = useState({
-        "restartXAnimationTime": (Math.random() + 2) + "s",
-        "nextStageXAnimationTime": (Math.random() + 2) + "s",
-        "restartYAnimationTime": (Math.random() + 3) + "s",
-        "nextStageYAnimationTime": (Math.random() + 3) + "s"
+        "restartXAnimationTime": (Math.random() + 4) + "s",
+        "nextStageXAnimationTime": (Math.random() + 4) + "s",
+        "restartYAnimationTime": (Math.random() + 5) + "s",
+        "nextStageYAnimationTime": (Math.random() + 5) + "s"
     });
     const navigate = useNavigate();
 
@@ -24,12 +24,16 @@ const Flashlight = () => {
 
     const handleOnClick = (e) => {
 
+
+        console.log("hi");
         navigate(e);
 
     }
 
     return (
-        <div className="flashlight" onMouseMove={(e) => handleMouseMove(e)} style={
+        <>
+        
+        <div className="flashlight"  onMouseMove={(e) => handleMouseMove(e)} style={
         // <div onMouseMove={(e) => handleMouseMove(e)} style={
             {
                 "--cursorX": cursorX + "px",
@@ -53,6 +57,7 @@ const Flashlight = () => {
                 Next Stage
             </button>
         </div>
+        </>
     )
 
 }
