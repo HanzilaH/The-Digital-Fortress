@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import PuzzleTemplate from "../PuzzleTemplate";
 import FakeCaptcha from "../FakeCaptcha";
+import Flashlight from "../Flashlight";
 
 const routes = [
     {
@@ -14,6 +15,10 @@ const routes = [
     {
         path: "/fakeCaptcha",
         element: <FakeCaptcha />
+    },
+    {
+        path: "/flashlight",
+        element: <Flashlight />
     }
 ]
 
