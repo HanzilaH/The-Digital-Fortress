@@ -6,6 +6,7 @@ import {
 import MathsQuestion from "../MathsQuestion";
 import PuzzleTemplate from "../PuzzleTemplate";
 import FakeCaptcha from "../FakeCaptcha";
+import EndingTiles from "../EndingTiles";
 
 const routes = [
     {
@@ -19,6 +20,10 @@ const routes = [
     {
         path: "/math",
         element: <MathsQuestion />
+    },
+    {
+        path: "/EndingTiles",
+        element: <EndingTiles />
     }
 ]
 
