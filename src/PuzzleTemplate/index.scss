@@ -1,0 +1,55 @@
+.template-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+}
+
+.template-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 70vh;
+    padding: 4%;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe,
+                    -20px -20px 60px #ffffff;
+}
+
+
+.template-footer{
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+
+.template-footer div{
+    margin-left: 5%;
+}
+
+
+
+
+
+.template-footer div button{
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid #01a9a4;
+    border-radius: 0.9em;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .template-footer div button:hover {
+    background-color: #227774;
+    color: white;
+  }
+  
+  .template-footer div button:active {
+    background-color: #227774;
+    color:white;
+  }
