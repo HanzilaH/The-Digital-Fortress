@@ -4,11 +4,18 @@ import {
     createBrowserRouter
 } from "react-router-dom";
 
+import LandingPage from "../LandingPage";
+
 const routes = [
     {
         path: "/test",
         element: <div>Test</div>
-    }
+    },
+    {
+        path: "/landingPage",
+        element: <LandingPage/>
+    },
+
 ]
 
 
