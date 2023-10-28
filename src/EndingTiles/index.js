@@ -84,7 +84,7 @@ const Row = ({ array, originalArray, setSolved }) => {
       }
     
     const checkDone = (arr1, arr2) => {
-        if (arr1.length == 4 && areArraysEqual(arr1, arr2)) {
+        if (arr1.length === 4 && areArraysEqual(arr1, arr2)) {
             rickBool = true;
         }
         else if (areArraysEqual(arr1, arr2)) {
