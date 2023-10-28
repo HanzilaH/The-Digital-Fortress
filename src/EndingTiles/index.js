@@ -2,6 +2,7 @@ import { DragDropContext, Draggable } from 'react-beautiful-dnd';
 import { StrictModeDroppable } from './StrictModeDroppable';
 import { useState } from 'react';
 import './index.scss';
+import PuzzleTemplate from '../PuzzleTemplate';
 
 const rickArray = [
     {
@@ -61,42 +62,41 @@ const shuffleArray = (array) => {
     const shuffledArray = [...array];
     return shuffledArray.sort(() => Math.random() - 0.5);
 }
-
-const areArraysEqual = (arr1, arr2) => {
-    if (arr1.length !== arr2.length) {
-      return false;
-    }
-  
-    for (let i = 0; i < arr1.length; i++) {
-      // Compare the serial (name) property
-      if (arr1[i].name !== arr2[i].name) {
-        return false;
-      }
-    }
-  
-    return true;
-  }
-
-const checkDone = (arr1, arr2) => {
-    if (arr1.length == 4 && areArraysEqual(arr1, arr2)) {
-        rickBool = true;
-    }
-    else if (areArraysEqual(arr1, arr2)) {
-        rolledBool = true;
-    }
-
-    if (rickBool && rolledBool) {
-        console.log('solved');
-        // Next Component
-    }
-}
   
 const shuffledRickArray = shuffleArray(rickArray);
 const shuffledRolledArray = shuffleArray(rolledArray);
 let rickBool = false;
 let rolledBool = false;
 
-const Row = ({ array, originalArray }) => {
+const Row = ({ array, originalArray, setSolved }) => {
+    const areArraysEqual = (arr1, arr2) => {
+        if (arr1.length !== arr2.length) {
+          return false;
+        }
+      
+        for (let i = 0; i < arr1.length; i++) {
+          if (arr1[i].name !== arr2[i].name) {
+            return false;
+          }
+        }
+      
+        return true;
+      }
+    
+    const checkDone = (arr1, arr2) => {
+        if (arr1.length == 4 && areArraysEqual(arr1, arr2)) {
+            rickBool = true;
+        }
+        else if (areArraysEqual(arr1, arr2)) {
+            rolledBool = true;
+        }
+    
+        if (rickBool && rolledBool) {
+            console.log("done");
+            setSolved(true);
+        }
+    }
+
     const [characters, updateCharacters] = useState(array);
 
     const handleOnDragEnd = (result) => {
@@ -140,17 +140,21 @@ const Row = ({ array, originalArray }) => {
 };
 
 const EndingTiles = () => {
+    const [solved, setSolved] = useState(false);
+
     return (
-        <div className="EndingTiles">
-            <h1>Final Stage</h1>
-            <div>
-                <Row array = { shuffledRickArray } originalArray = { rickArray } />
-                <Row array = { shuffledRolledArray } originalArray = { rolledArray } />
+        <PuzzleTemplate title = "Final Stage" isSolved = { solved } puzzle = {
+            <div className="EndingTiles">
+                <div>
+                    <Row array = { shuffledRickArray } originalArray = { rickArray } setSolved = { setSolved } />
+                    <Row array = { shuffledRolledArray } originalArray = { rolledArray } setSolved = { setSolved } />
+                </div>
+                <p>
+                    Decode the code and rearrange the binaries to spell the code
+                </p>
             </div>
-            <p>
-                Decode the code and rearrange the binaries to spell the code
-            </p>
-        </div>
+        }/>
+
     )
 }
 
