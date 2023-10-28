@@ -4,11 +4,16 @@ import {
     createBrowserRouter
 } from "react-router-dom";
 import PuzzleTemplate from "../PuzzleTemplate";
+import FakeCaptcha from "../FakeCaptcha";
 
 const routes = [
     {
         path: "/test",
         element: <PuzzleTemplate title="test" nextStage="/test" alwaysShowButtons={false} isSolved={true} puzzle={<div>testtest</div>} />
+    },
+    {
+        path: "/fakeCaptcha",
+        element: <FakeCaptcha />
     }
 ]
 
