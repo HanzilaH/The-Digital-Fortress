@@ -16,26 +16,49 @@ import "./index.scss";
  *                        : default = false
  * @param puzzle html/jsx: The actual puzzle html/jsx content
  */
-const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false, isSolved = false, puzzle }) => {
+const gearImageOne = require("../assets/gear1.png");
+const gearImageTwo = require("../assets/gear2.png");
+const gearImageThree = require("../assets/gear3.png");
 
+const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false, isSolved = false, puzzle }) => {
+    
     return (
 
         <>
+        <div className="image-two-small">
+            <img className="image-gear-two-small" src={gearImageTwo} alt="gear1" />
+        </div>
+        <div className="image-one">
+            <img className="image-gear-one" src={gearImageOne} alt="gear1" />
+        </div>
+
 
         <div className="text-center template-top">
-
             <h1 className="puzzle-template-title">{title}</h1>
         </div>
 
         <div className="d-flex justify-content-center">
-
+        
             <div className="template-card">
-
             {puzzle}
-
             </div>
+            
         </div>
-
+        <div className="image-one-translucent">
+            <img className="image-gear-one-translucent" src={gearImageOne} alt="gear1" />
+        </div>
+        <div className="image-two">
+            <img className="image-gear-two" src={gearImageTwo} alt="gear2" />
+        </div>
+        <div className="image-one-small">
+            <img className="image-gear-one-small" src={gearImageOne} alt="gear1" />
+        </div>
+        <div className="image-three">
+            <img className="image-gear-three" src={gearImageThree} alt="gear2" />
+        </div>
+        <div className="image-three-translucent">
+            <img className="image-gear-three-translucent" src={gearImageThree} alt="gear2" />
+        </div>
         <div className="template-footer d-flex justify-content-center">
 
             {(alwaysShowButtons || isSolved) && (
@@ -45,13 +68,13 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
 
                     <div>
                         <Link to="/">
-                            <button>Restart</button>
+                            <button className="button-style"><span>Restart</span></button>
                         </Link>
 
                     </div>
                     <div>
                         <Link to={nextStage}>
-                            <button>Next Stage</button>
+                            <button className="button-style"><span>Next Stage</span></button>
                         </Link>
                     </div>
                     </>
