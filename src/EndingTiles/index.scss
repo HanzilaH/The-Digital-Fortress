@@ -1,7 +1,7 @@
 .EndingTiles {
     text-align: center;
   }
-  
+
   .EndingTiles-header {
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@
     justify-content: center;
     font-size: calc(10px + 1.5vmin);
   }
-  
+
   .characters {
     list-style: none;
     padding-left: 0;
@@ -18,7 +18,7 @@
     justify-content: flex-start;
     margin: 0;
   }
-  
+
 .characters li {
   display: flex;
   align-items: center;
@@ -28,13 +28,13 @@
   margin: 0.3em;
   margin-bottom: 0;
 }
-  
+
   .characters p {
     max-width: none;
     font-weight: bold;
     margin: 0;
   }
-  
+
   .template-card:hover {
     transform: none;
   }

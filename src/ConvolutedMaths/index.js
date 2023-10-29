@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PuzzleTemplate from "../PuzzleTemplate";
 import "./index.scss";
+import { useNavigate } from "react-router-dom";
 
 const questions = [
     {
@@ -28,8 +29,9 @@ const questions = [
 const ConvolutedMaths = () => {
     const [selectedQuestion, setSelectedQuestion] = useState(questions[Math.floor(Math.random() * 5)]);
     const [text, setText] = useState('');
-    const [solved, setSolved] = useState(false);
     const [retries, setRetries] = useState(2);
+
+    const navigate = useNavigate();
 
     const getRandomQuestion = (oldQuestion) => {
         let newQuestion = questions[Math.floor(Math.random() * 5)];
@@ -47,7 +49,7 @@ const ConvolutedMaths = () => {
         event.preventDefault();
 
         if (text === selectedQuestion.answer) {
-            setSolved(true);
+            navigate("/test");
         }
         else if (retries > 0) {
             const oldQuestion = selectedQuestion;
@@ -56,12 +58,12 @@ const ConvolutedMaths = () => {
             setRetries(retries - 1);
         }
         else {
-            // Send to Main Page
+            navigate("/");
         }
     };
 
     return (
-        <PuzzleTemplate title="Can you solve maths?" isSolved={ solved } puzzle={
+        <PuzzleTemplate title="Can you solve maths?" puzzle={
             <div className="mathQuestion">
                 <div>
                     {selectedQuestion.question}
