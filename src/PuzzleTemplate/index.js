@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 
+const gearImageOne = require("../assets/gear1.png");
+const gearImageTwo = require("../assets/gear2.png");
+const gearImageThree = require("../assets/gear3.png");
+
 /**
  * General puzzle template
  *
@@ -16,10 +20,6 @@ import "./index.scss";
  *                        : default = false
  * @param puzzle html/jsx: The actual puzzle html/jsx content
  */
-const gearImageOne = require("../assets/gear1.png");
-const gearImageTwo = require("../assets/gear2.png");
-const gearImageThree = require("../assets/gear3.png");
-
 const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false, isSolved = false, puzzle }) => {
 
     const navigate = useNavigate();
