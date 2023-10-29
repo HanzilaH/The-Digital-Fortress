@@ -3,6 +3,8 @@ import './index.scss';
 import PuzzleTemplate from '../PuzzleTemplate';
 import EndingTilesRow from '../EndingTilesRows';
 
+// DELETE LATER: fix navigation, link next stage button to RickRollVideo
+
 const rickArray = [
     {
         id: 'tile0',
@@ -61,7 +63,7 @@ const shuffleArray = (array) => {
     const shuffledArray = [...array];
     return shuffledArray.sort(() => Math.random() - 0.5);
 }
-  
+
 const shuffledRickArray = shuffleArray(rickArray);
 const shuffledRolledArray = shuffleArray(rolledArray);
 

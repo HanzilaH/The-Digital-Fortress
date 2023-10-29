@@ -4,21 +4,23 @@ import  { useState } from 'react';
 let rickBool = false;
 let rolledBool = false;
 
+// DELETE LATER: remove console.log(), link with RickRollVideo
+
 const EndingTilesRow = ({ array, originalArray, setSolved }) => {
     const areArraysEqual = (arr1, arr2) => {
         if (arr1.length !== arr2.length) {
           return false;
         }
-      
+
         for (let i = 0; i < arr1.length; i++) {
           if (arr1[i].name !== arr2[i].name) {
             return false;
           }
         }
-      
+
         return true;
       }
-    
+
     const checkDone = (arr1, arr2) => {
         if (arr1.length === 4 && areArraysEqual(arr1, arr2)) {
             rickBool = true;
@@ -26,7 +28,7 @@ const EndingTilesRow = ({ array, originalArray, setSolved }) => {
         else if (areArraysEqual(arr1, arr2)) {
             rolledBool = true;
         }
-    
+
         if (rickBool && rolledBool) {
             console.log("done");
             setSolved(true);

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import videoSource from '../assets/rickRolled.mp4';
 
+// TODO: link to EndingTiles Component
+
 const RickRollVideo = () => {
     const [play, setPlay] = useState(false);
 
