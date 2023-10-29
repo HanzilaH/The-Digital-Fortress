@@ -18,9 +18,10 @@ const gearImageThree = require("../assets/gear3.png");
  *                        : If alwaysShowButtons is false, then a value of false will hide the restart and next stage button
  *                        : If alwaysShowButtons is true, then a value of false will always redirect back to the starting page
  *                        : default = false
+ * @param swappedButtons boolean: To show swapped restart and next buttons
  * @param puzzle html/jsx: The actual puzzle html/jsx content
  */
-const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false, isSolved = false, puzzle }) => {
+const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false, isSolved = false, swappedButtons = false, lastStage = false, puzzle }) => {
 
     const navigate = useNavigate();
 
@@ -94,12 +95,26 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
 
                 )
             )}
-
+            {swappedButtons && (
+                    <>
+                        <div>
+                            <button className="button-style" onClick={() => {handleClick(nextStage)}}><span>Next Stage</span></button>
+                        </div>
+                        <div>
+                            <button className="button-style" onClick={() => {handleClick("/")}}><span>Restart</span></button>
+                        </div>
+                    </>
+            )}
+            {lastStage && (
+                    <>
+                        <div>
+                            <button className="button-style" onClick={() => {handleClick("/")}}><span>Collect your reward</span></button>
+                        </div>
+                    </>
+            )}
         </div>
-
         </>
     )
-
 }
 
 export default PuzzleTemplate;
