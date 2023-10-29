@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SlidingPuzzleTile from '../SlidingPuzzleTile';
 import PuzzleTemplate from '../PuzzleTemplate';
+import './index.scss';
 
 const SlidingPuzzle = () => {
   const createTile = (row, col, face) => {
