@@ -8,6 +8,7 @@ import PuzzleTemplate from "../PuzzleTemplate";
 import FakeCaptcha from "../FakeCaptcha";
 import EndingTiles from "../EndingTiles";
 import SlidingPuzzle from "../SlidingPuzzle";
+import ConvolutedMaths from "../ConvolutedMaths";
 
 const routes = [
     {
@@ -29,6 +30,10 @@ const routes = [
     {
         path: "/SlidingPuzzle",
         element: <SlidingPuzzle />
+    },
+    {
+        path: "/ConvolutedMaths",
+        element: <ConvolutedMaths />
     }
 ]
 
