@@ -7,15 +7,10 @@ const ReactionTime = () => {
     const [showButton, setShowButton] = useState(false);
     // const [showText, setShowText] = useState(false);
     const [timeLeft, setTimeLeft] = useState(0);
-    // const [randomPosition, setRandomPosition] = useState({
-    //     position: "relative",
-    //     left: `${Math.floor(Math.random() * 60) - 30}vw`,
-    //     top: `${Math.floor(Math.random() * 60) - 30}vh`
-    // });
     const [randomPosition, setRandomPosition] = useState({
-        "position": "absolute",
-        "top": "150px",
-        "left": "75px"
+        position: "relative",
+        left: `${Math.floor(Math.random() * 60) - 30}vw`,
+        top: `${Math.floor(Math.random() * 60) - 30}vh`
     });
     const [timerStarted, setTimerStarted] = useState(false);
 
