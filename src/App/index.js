@@ -9,6 +9,7 @@ import FakeCaptcha from "../FakeCaptcha";
 import EndingTiles from "../EndingTiles";
 import SlidingPuzzle from "../SlidingPuzzle";
 import ConvolutedMaths from "../ConvolutedMaths";
+import PreviousFunFact from "../PreviousFunFact";
 
 const routes = [
     {
@@ -34,6 +35,10 @@ const routes = [
     {
         path: "/ConvolutedMaths",
         element: <ConvolutedMaths />
+    },
+    {
+        path: "/PreviousFunFact",
+        element: <PreviousFunFact />
     }
 ]
 
