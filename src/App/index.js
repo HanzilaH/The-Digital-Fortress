@@ -11,6 +11,7 @@ import ReactionTime from "../ReactionTimeTest";
 import SlidingPuzzle from "../SlidingPuzzle";
 import ConvolutedMaths from "../ConvolutedMaths";
 import PreviousFunFact from "../PreviousFunFact";
+import RickRollVideo from "../RickRollVideo";
 
 const routes = [
     {
@@ -44,6 +45,10 @@ const routes = [
     {
         path: "/PreviousFunFact",
         element: <PreviousFunFact />
+    },
+    {
+        path: "/RickRollVideo",
+        element: <RickRollVideo />
     }
 ]
 
