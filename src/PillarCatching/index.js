@@ -2,12 +2,15 @@ import React from 'react'
 import './index.scss'
 import { useState, useEffect } from 'react';
 import { logDOM } from '@testing-library/react';
+import { useNavigate } from 'react-router-dom';
 
 // import Pillar from './Pillar';
 
 const gear = require('../assets/gear1.png')
 
 const PillarCatching = () => {
+
+  const navigate = useNavigate();
 
     // const [pillars, setPillars] = useState([]);
 
@@ -56,6 +59,9 @@ const PillarCatching = () => {
       setLivesLeft(liveLeft-1);
       if(liveLeft<=0){
         //redirect here
+        navigate("/")
+      }else{
+        setMessage(liveLeft+" lives left! BE CAREFUL!")
       }
 
 
@@ -80,7 +86,7 @@ console.log("next");
       {pillarArray.map((pillar, index) => (
         <div
           key={`column-${index}`}
-          onMouseOver={handlePillarMouseOver} // Removed unnecessary arrow function
+          onMouseEnter={handlePillarMouseOver} // Removed unnecessary arrow function
           className={`pillar-column ${pillar ? "grow-animation-column" : ""}`}
         ></div>
       ))}
@@ -97,7 +103,7 @@ console.log("next");
       {pillarArray.map((pillar, index) => (
         <div
           key={`row-${index}`}
-          onMouseOver={handlePillarMouseOver} // Removed unnecessary arrow function
+          onMouseEnter={handlePillarMouseOver} // Removed unnecessary arrow function
           className={`pillar-row ${pillar ? "grow-animation" : ""}`}
         ></div>
       ))}
