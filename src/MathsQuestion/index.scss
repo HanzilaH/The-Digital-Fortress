@@ -14,7 +14,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 25px;
-    
+
 }
 
 .maths-question{
@@ -29,7 +29,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 25px;
-    
+    // z-index: 100;
 }
 
 .footer{
@@ -43,7 +43,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 25px;
-    
+
 
 }
 
@@ -56,6 +56,7 @@ body {
     margin: 5px 0;
     cursor: pointer;
     transition: .3s;
+    z-index: 100;
   }
 
 .label-style:hover,
@@ -63,7 +64,7 @@ body {
 .label-style:active {
     background: #01a9a3be;
 }
-  
+
   .label-text {
     color: #2f2626;
     margin-left: 14px;
@@ -85,7 +86,7 @@ body {
       opacity: 1;
     }
   }
-  
+
   .flicker {
     animation: flickerAnimation 0.1s infinite;
   }
@@ -98,7 +99,7 @@ body {
     border: none;
     background: none;
    }
-   
+
    .button-style:before {
     content: "";
     position: absolute;
@@ -111,7 +112,7 @@ body {
     height: 45px;
     transition: all 0.3s ease;
    }
-   
+
    .button-style span {
     position: relative;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -120,7 +121,7 @@ body {
     letter-spacing: 0.05em;
     color: #2f2626;
    }
-   
+
    .button-style svg {
     position: relative;
     top: 0;
@@ -133,17 +134,17 @@ body {
     transform: translateX(-5px);
     transition: all 0.3s ease;
    }
-   
+
    .button-style:hover:before {
     width: 100%;
     background: #b1dae7;
     cursor: pointer;
    }
-   
+
    .button-style:hover svg {
     transform: translateX(0);
    }
-   
+
    .button-style:active {
     transform: scale(0.95);
    }
@@ -154,6 +155,3 @@ body {
     width: 0;
     height: 0;
    }
-
-   
-
