@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import './index.scss';
 import PuzzleTemplate from "../PuzzleTemplate";
 
 const paragraphs = [
@@ -23,7 +24,7 @@ const DeleteRandomCharacter = () => {
             setSolved(true);
             return;
         }
-        if (count % 40 == 0) {
+        if (count % 40 === 0) {
             deleteCharacters();
         }
     };

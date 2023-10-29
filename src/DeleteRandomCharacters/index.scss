@@ -1,3 +1,19 @@
 .no-copy {
     user-select: none; 
 }
+
+.deleteRandom{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    padding: 0px 45px 0px 40px;
+    margin: 0px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    margin: 50px 0px 5px 0px;
+    border-radius: 20px;
+    opacity: 0.6;
+    max-height: 150px;
+}
