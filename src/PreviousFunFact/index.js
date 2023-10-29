@@ -2,41 +2,30 @@ import { useState } from "react";
 import PuzzleTemplate from "../PuzzleTemplate";
 import PreviousFunFactTile from "../PreviousFunFactTiles";
 import "./index.scss";
+import { useSelector } from "react-redux";
 
-const funFacts = [
-    "Honey never spoils",
-    "Octopuses have three hearts",
-    "The Eiffel Tower can be 6 inches taller during the summer",
-    "The world's largest desert is not the Sahara; it's Antarctica",
-    "Wombat feces are cube-shaped",
-    "Bananas are berries, but strawberries are not",
-    "Sloths only poop once a week",
-    "The world's oldest known recipe is for beer",
-    "A day on Venus is longer than its year",
-    "Honeybees can recognize human faces",
-    "Armadillos always give birth to identical quadruplets",
-    "The unicorn is Scotland's national animal",
-    "There's a basketball court on the fifth floor of the U.S. Supreme Court building",
-    "The Guinness World Record for the most T-shirts worn at once is 260",
-    "The Mantis shrimp has the most complex eyes in the animal kingdom"
-];
+// DELETE LATER: fix navigation, link fun fact with landing page
 
 const PreviousFunFact = () => {
+
+    const funFactIndex = useSelector((state) => state.index.index);
+    const FUN_FACTS = useSelector((state) => state.index.FUN_FACTS);
+    const [correctAnswer, setSelectedQuestion] = useState(funFactIndex);
+    const [solved, setSolved] = useState(false);
+
     const getArray = () => {
         const newSet = new Set();
         newSet.add(correctAnswer);
         while (newSet.size < 5) {
-            newSet.add(Math.floor(Math.random() * funFacts.length));
+            newSet.add(Math.floor(Math.random() * FUN_FACTS.length));
         }
         return Array.from(newSet).sort(() => Math.random() - 0.5);
     };
-    
-    const [correctAnswer, setSelectedQuestion] = useState(3);
-    const [solved, setSolved] = useState(false);
+
     const [myArray, setMyArray] = useState(getArray());
 
 
-    const handleClick = (index, idx) => {    
+    const handleClick = (index, idx) => {
         console.log(index);
         console.log(correctAnswer);
         if (index === correctAnswer) {
@@ -55,7 +44,7 @@ const PreviousFunFact = () => {
         <PuzzleTemplate title="Do you remember the fun fact?" puzzle={
             <div className="fun-facts">
                 {myArray.map((item, index) => (
-                    <PreviousFunFactTile funFact={ funFacts[item] } onTileClick={() => handleClick(item, index)} key={index} isCorrect={indexState === index} />
+                    <PreviousFunFactTile funFact={ FUN_FACTS[item] } onTileClick={() => handleClick(item, index)} key={index} isCorrect={indexState === index} />
                 ))}
           </div>
         } />

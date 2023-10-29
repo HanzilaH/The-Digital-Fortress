@@ -1,13 +1,11 @@
 import React from 'react'
 import './index.scss'
 import { useState, useEffect } from 'react';
- 
-
-const gear1 = require('../assets/gear1.png');
-const gear2 = require('../assets/gear1.png');
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { SET_INDEX } from '../reducers/indexReducer';
 
 const Button = ({onHover}) => {
-
 
     const [position, setPosition] = useState({
       x: 700,
@@ -17,7 +15,7 @@ const Button = ({onHover}) => {
     const handleClick=()=>{
         console.log("hiu");
     }
-  
+
     const moveButton = () => {
       const newPosition = {
         x: Math.floor(Math.random() * 500) + 1,
@@ -25,10 +23,10 @@ const Button = ({onHover}) => {
       };
 
       onHover()
-  
+
       setPosition(newPosition);
     };
-  
+
     return (
       <button
         id="begin-button"
@@ -96,32 +94,35 @@ const GearBox = ()=>{
 
 const LandingPage = () => {
 
-    const [hoverNumber, setHoverNumber] = useState(0)
-    const [sentence, setSentence] = useState("")
+    const dispatch = useDispatch();
+    const FUN_FACTS = useSelector((state) => state.index.FUN_FACTS);
+    const [index, setIndex] = useState(Math.floor(Math.random() * FUN_FACTS.length));
+    dispatch(SET_INDEX(index));
+    const [hoverNumber, setHoverNumber] = useState(0);
+    const [sentence, setSentence] = useState(FUN_FACTS[index]);
     // const [isShrunk, setIsShrunk] = useState(false);
 
-    useEffect(() => {
-      document.addEventListener('keypress', (event) => {
 
-        if (event.key === 'Enter') {
-            console.log("enter pressed");
+    const navigate = useNavigate();
+
+    const handleOnPress = (e) => {
+
+        if (e.key === 'Enter') {
+            navigate("/test2");
         }
-      });
-    }, []);
 
+    }
 
-    
     const handleHover =()=>{
         setHoverNumber(hoverNumber+1)
         console.log(hoverNumber);
-        
+
         if(hoverNumber>= 10){
-            setSentence("You dummy just press Enter!")
+            setSentence("You dummy just press Enter!");
         }
     }
   return (
-    <>
-<div className='landing-page-container'>
+<div className='landing-page-container' onKeyDown={handleOnPress}>
 
         <div className='landing-page-title d-flex align-items-center justify-content-center'>
 
@@ -138,9 +139,6 @@ const LandingPage = () => {
         <div className='text-center'>{sentence}</div>
 </div>
 
-    {/* </div> */}
-
-    </>
 
 )
 }
