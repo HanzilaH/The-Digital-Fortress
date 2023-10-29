@@ -9,23 +9,22 @@ body{
     align-items: center;
     min-height: 10vh;
     background-color: #72cccb;
-    box-shadow: 20px 20px 60px #29bcb7,
-                    -20px -20px 60px #29bcb7;
+    box-shadow: 10px 10px 50px #29bcb7,
+                    -10px -10px 50px #29bcb7;
     width: 70vw;
     text-align: center;
     margin: 25px auto 20px auto;
-    align-items: center;
-    justify-content: center;
     border-radius: 10px;
     color: #2f2626;
     transition: all 0.3s ease;
     border: solid 2px #d7d7d7cf;
 }
-.template-top:hover, .template-card:hover {
-  transform: scale(1.02);
-}
+// .template-top:hover, .template-card:hover {
+//   transform: scale(1.005);
+// }
 
 .template-card{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,9 +32,8 @@ body{
     height: 70vh;
     padding: 4%;
     border-radius: 10px;
-    box-shadow: 20px 20px 60px #29bcb7,
-                    -20px -20px 60px #29bcb7;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 10px 10px 50px #29bcb7,
+                    -10px -10px 50px #29bcb7;
     color: #2f2626;
     background-color: #72cccb;
     padding: 5px 10px 5px 10px;

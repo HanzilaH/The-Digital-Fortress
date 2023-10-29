@@ -7,6 +7,7 @@ import MathsQuestion from "../MathsQuestion";
 import PuzzleTemplate from "../PuzzleTemplate";
 import FakeCaptcha from "../FakeCaptcha";
 import EndingTiles from "../EndingTiles";
+import ReactionTime from "../ReactionTimeTest";
 import SlidingPuzzle from "../SlidingPuzzle";
 import ConvolutedMaths from "../ConvolutedMaths";
 
@@ -26,6 +27,10 @@ const routes = [
     {
         path: "/EndingTiles",
         element: <EndingTiles />
+    },
+    {
+        path: "/reactionTime",
+        element: <ReactionTime />
     },
     {
         path: "/SlidingPuzzle",
