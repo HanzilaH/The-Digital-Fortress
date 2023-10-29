@@ -10,6 +10,8 @@ import EndingTiles from "../EndingTiles";
 import ReactionTime from "../ReactionTimeTest";
 import SlidingPuzzle from "../SlidingPuzzle";
 import ConvolutedMaths from "../ConvolutedMaths";
+import LandingPage from "../LandingPage";
+import Maze from "../Maze";
 import PreviousFunFact from "../PreviousFunFact";
 import RickRollVideo from "../RickRollVideo";
 
@@ -41,6 +43,14 @@ const routes = [
     {
         path: "/ConvolutedMaths",
         element: <ConvolutedMaths />
+    },
+    {
+        path: "/landingPage",
+        element: <LandingPage/>
+    },
+    {
+        path: "/maze",
+        element: <Maze/>
     },
     {
         path: "/PreviousFunFact",
