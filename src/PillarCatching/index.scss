@@ -15,17 +15,17 @@
 
   height: 30px; 
   border-radius: 50%;
-  mix-blend-mode: difference; 
+  // mix-blend-mode: difference; 
   
 }
 
 .grow-animation {
-  animation: grow 1s ease-in-out; /* Animation named "grow" with a duration of 2 seconds and easing */
+  animation: grow 1s ease-in-out; 
 }
 
 @keyframes grow {
   from {
-    width: 0; /* Pillar starts with height 0 */
+    width: 0;
   }
   to {
     width: 100vw; /* Pillar grows to 100px in height */
