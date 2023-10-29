@@ -79,6 +79,6 @@ const ConvolutedMaths = () => {
             </div>
         } />
     )
-}
+};
 
 export default ConvolutedMaths;
