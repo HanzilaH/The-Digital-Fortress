@@ -43,7 +43,7 @@ const SlidingPuzzle = () => {
 
   useEffect(() => {
     shuffle();
-    const intervalId = setInterval(shuffleTwoTiles, 60000);
+    const intervalId = setInterval(shuffleTwoTiles, 30000);
 
     return () => {
       clearInterval(intervalId);
@@ -111,7 +111,7 @@ const SlidingPuzzle = () => {
     }
   }
 
-  
+
   const [solved, setSolved] = useState(false);
 
   return (
