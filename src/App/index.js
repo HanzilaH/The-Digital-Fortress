@@ -16,6 +16,8 @@ import PreviousFunFact from "../PreviousFunFact";
 import RickRollVideo from "../RickRollVideo";
 import DeleteRandomCharacter from "../DeleteRandomCharacters";
 
+import PillarCatching from "../PillarCatching";
+
 const routes = [
     {
         path: "/test",
@@ -64,6 +66,10 @@ const routes = [
     {
         path: "/DeleteRandomCharacter",
         element: <DeleteRandomCharacter />
+    },
+    {
+        path: "/pillarCatching",
+        element: <PillarCatching />
     }
 ]
 
