@@ -53,7 +53,7 @@ const EndingTilesRow = ({ array, originalArray, setSolved }) => {
                 <StrictModeDroppable droppableId="characters" direction="horizontal">
                     {(provided) => (
                     <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-                        {characters.map(({id, name}, index) => {
+                        {characters.map(({id, name, hint}, index) => {
                         return (
                             <Draggable draggableId={id} index={index} key={id} direction="horizontal">
                             {(provided) => (

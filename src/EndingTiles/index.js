@@ -69,7 +69,7 @@ const EndingTiles = () => {
     const [solved, setSolved] = useState(false);
 
     return (
-        <PuzzleTemplate title = "Final Stage" isSolved = { solved } puzzle = {
+        <PuzzleTemplate title = "Final Stage" isSolved = { solved } lastStage={true} puzzle = {
             <div className="EndingTiles">
                 <div>
                     <EndingTilesRow array = { shuffledRickArray } originalArray = { rickArray } setSolved = { setSolved } />

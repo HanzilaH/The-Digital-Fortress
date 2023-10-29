@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
+import { useState } from "react";
+import videoSource from '../assets/rickRolled.mp4';
 
 const gearImageOne = require("../assets/gear1.png");
 const gearImageTwo = require("../assets/gear2.png");
 const gearImageThree = require("../assets/gear3.png");
+
 
 /**
  * General puzzle template
@@ -24,6 +27,23 @@ const gearImageThree = require("../assets/gear3.png");
 const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false, isSolved = false, swappedButtons = false, lastStage = false, puzzle }) => {
 
     const navigate = useNavigate();
+
+    const [showVideo, setShowVideo] = useState(false)
+
+    const RickRollVideo = ()=>{
+        setShowVideo(true)
+        
+    }
+    if(showVideo){
+        return (
+            <video
+                controls
+                autoPlay
+                src={videoSource}
+                style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
+            />
+        )
+    }
 
     const handleClick = (e) => {
 
@@ -69,7 +89,7 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
         </div>
         <div className="template-footer d-flex justify-content-center">
 
-            {(alwaysShowButtons || isSolved) && (
+            {(alwaysShowButtons || isSolved) && !lastStage && (
                 isSolved ? (
                     <>
 
@@ -95,7 +115,7 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
 
                 )
             )}
-            {swappedButtons && (
+            {isSolved && swappedButtons && (
                     <>
                         <div>
                             <button className="button-style" onClick={() => {handleClick(nextStage)}}><span>Next Stage</span></button>
@@ -105,10 +125,10 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
                         </div>
                     </>
             )}
-            {lastStage && (
+            {isSolved && lastStage && (
                     <>
                         <div>
-                            <button className="button-style" onClick={() => {handleClick("/")}}><span>Collect your reward</span></button>
+                            <button className="button-style" onClick={() => {RickRollVideo()}}><span>Collect your reward</span></button>
                         </div>
                     </>
             )}
