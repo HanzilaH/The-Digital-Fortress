@@ -19,11 +19,11 @@ const DeleteRandomCharacter = () => {
         const targetText = event.target.value;
         setCount(count + 1);
         setText(targetText);
-        if (targetText === selectedPara) {
+        if (count > 300) {
             setSolved(true);
             return;
         }
-        if (count % 40 == 0) {
+        if (count % 30 == 0) {
             deleteCharacters();
         }
     };
