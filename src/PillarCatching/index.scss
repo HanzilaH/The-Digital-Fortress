@@ -1,0 +1,41 @@
+/* Pillar.css */
+.pillar {
+  position: absolute;
+  width: 20px;
+  height: 0;
+  background-color: #ddb4b4;
+  // transition: height 2s ease; /* Smooth transition for height changes */
+}
+
+.grow-animation {
+  animation: grow 0.9s ease-in-out; /* Animation named "grow" with a duration of 2 seconds and easing */
+}
+
+@keyframes grow {
+  from {
+    width: 0; /* Pillar starts with height 0 */
+  }
+  to {
+    width: 100vw; /* Pillar grows to 100px in height */
+  }
+}
+
+.pillar-row{
+  margin: 0;
+  padding: 0;
+  height: 20vh;
+  width: 0;
+  background-color: #ddb4b4;
+
+}
+
+  
+
+.pillar-container{
+  color: white;
+    background-color: black;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    position: relative;
+}

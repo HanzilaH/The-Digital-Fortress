@@ -8,6 +8,8 @@ import PuzzleTemplate from "../PuzzleTemplate";
 import FakeCaptcha from "../FakeCaptcha";
 import EndingTiles from "../EndingTiles";
 
+import PillarCatching from "../PillarCatching";
+
 const routes = [
     {
         path: "/test",
@@ -24,6 +26,10 @@ const routes = [
     {
         path: "/EndingTiles",
         element: <EndingTiles />
+    },
+    {
+        path: "/pillarCatching",
+        element: <PillarCatching />
     }
 ]
 
