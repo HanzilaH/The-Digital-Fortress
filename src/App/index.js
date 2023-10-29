@@ -10,6 +10,7 @@ import EndingTiles from "../EndingTiles";
 import ReactionTime from "../ReactionTimeTest";
 import SlidingPuzzle from "../SlidingPuzzle";
 import ConvolutedMaths from "../ConvolutedMaths";
+import PreviousFunFact from "../PreviousFunFact";
 
 const routes = [
     {
@@ -39,6 +40,10 @@ const routes = [
     {
         path: "/ConvolutedMaths",
         element: <ConvolutedMaths />
+    },
+    {
+        path: "/PreviousFunFact",
+        element: <PreviousFunFact />
     }
 ]
 
