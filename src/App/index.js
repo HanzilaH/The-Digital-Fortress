@@ -14,6 +14,7 @@ import LandingPage from "../LandingPage";
 import Maze from "../Maze";
 import PreviousFunFact from "../PreviousFunFact";
 import RickRollVideo from "../RickRollVideo";
+import DeleteRandomCharacter from "../DeleteRandomCharacters";
 
 const routes = [
     {
@@ -59,6 +60,10 @@ const routes = [
     {
         path: "/RickRollVideo",
         element: <RickRollVideo />
+    },
+    {
+        path: "/DeleteRandomCharacter",
+        element: <DeleteRandomCharacter />
     }
 ]
 
