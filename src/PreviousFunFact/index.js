@@ -36,12 +36,13 @@ const PreviousFunFact = () => {
     const [myArray, setMyArray] = useState(getArray());
 
 
-    const handleClick = (index) => {    
+    const handleClick = (index, idx) => {    
         console.log(index);
         console.log(correctAnswer);
         if (index === correctAnswer) {
             console.log(index);
-            setSolved(true);
+            // setSolved(true);// go to next page
+            setIndexState(idx);
         }
         else {
             // Main Page
@@ -51,10 +52,10 @@ const PreviousFunFact = () => {
     const [indexState, setIndexState] = useState()
 
     return (
-        <PuzzleTemplate title="Do you remember the fun fact?" isSolved={ solved } puzzle={
+        <PuzzleTemplate title="Do you remember the fun fact?" puzzle={
             <div className="fun-facts">
                 {myArray.map((item, index) => (
-                    <PreviousFunFactTile funFact={ funFacts[item] } onTileClick={() => handleClick(item)} key={index} />
+                    <PreviousFunFactTile funFact={ funFacts[item] } onTileClick={() => handleClick(item, index)} key={index} isCorrect={indexState === index} />
                 ))}
           </div>
         } />

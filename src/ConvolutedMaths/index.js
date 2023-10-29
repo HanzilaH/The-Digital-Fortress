@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PuzzleTemplate from "../PuzzleTemplate";
+import "./index.scss";
 
 const questions = [
     {
@@ -67,12 +68,13 @@ const ConvolutedMaths = () => {
                 </div>
                 <form onSubmit={handleSubmit}>
                     <input
+                        className="input-box"
                         type="text"
                         value={text}
                         onChange={handleInputChange}
                         placeholder="Type something here"
                     />
-                    <button type="submit">Submit</button>
+                    <button className="submit-button" type="submit">Submit</button>
                 </form>
             </div>
         } />

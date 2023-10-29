@@ -1,0 +1,33 @@
+.fun-fact-tile{
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding:5px 5px 5px 5px;
+    margin-bottom: 5px;
+    background: #b1dae7c8;
+    border: none;
+
+}
+.fun-fact-tile:hover {
+    transform: scale(1.02);
+    background: #ffffffc8;
+    cursor: pointer;
+
+}
+
+ .fun-fact-tile:hover:before, .fun-fact-tile:hover:after, .fun-fact-tile::focus-within {
+    background: #fdfdfdc8;
+    
+   }
+
+.fun-fact-tile:active {
+    transform: scale(0.95);
+    background: #f9f9f9c8;
+   }
+
+.correct-answer{
+    transform: scale(0.95);
+    background: #f9f9f9c8;
+}
+
+
+
