@@ -29,7 +29,7 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
         navigate(e);
 
     }
-    
+
     return (
         <>
         <div className="image-two-small">
@@ -45,11 +45,11 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
         </div>
 
         <div className="d-flex justify-content-center">
-        
+
             <div className="template-card">
             {puzzle}
             </div>
-            
+
         </div>
         <div className="image-one-translucent">
             <img className="image-gear-one-translucent" src={gearImageOne} alt="gear1" />
@@ -71,7 +71,7 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
             {(alwaysShowButtons || isSolved) && (
                 isSolved ? (
                     <>
-                    
+
 
                     <div>
                             <button className="button-style" onClick={() => {handleClick("/")}}><span>Restart</span></button>
@@ -83,12 +83,12 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
                     </>
                 ) : (
                     <>
-                    
+
                     <div>
-                        <button onClick={() => {handleClick("/")}}>Restart</button>
+                        <button className="button-style" onClick={() => {handleClick("/")}}><span>Restart</span></button>
                         </div>
                     <div>
-                    <button onClick={() => {handleClick("/")}}>Next Stage</button>
+                    <button className="button-style" onClick={() => {handleClick("/")}}><span>Next Stage</span></button>
                     </div>
                     </>
 
