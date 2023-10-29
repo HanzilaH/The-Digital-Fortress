@@ -3,8 +3,6 @@ import './index.scss';
 import PuzzleTemplate from '../PuzzleTemplate';
 import EndingTilesRow from '../EndingTilesRows';
 
-// DELETE LATER: fix navigation, link next stage button to RickRollVideo
-
 const rickArray = [
     {
         id: 'tile0',

@@ -894,7 +894,7 @@ const Maze = () => {
     }
 
     return (
-        <PuzzleTemplate title="Click inside the maze to start" nextStage="/test" isSolved={ isSolved } puzzle={
+        <PuzzleTemplate title="Click inside the maze to start" nextStage="/reactionTime" isSolved={ isSolved } puzzle={
             <div className="maze-grid" tabIndex="0" onKeyDown={ (e) => {handleKeyDown(e)} }>
                 {
                     squares.map((value, outerIndex) => (

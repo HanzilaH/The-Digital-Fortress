@@ -12,7 +12,6 @@ const Button = ({ onHover }) => {
   });
 
   const handleClick = () => {
-    console.log("hiu");
   };
 
   const moveButton = () => {
@@ -110,16 +109,16 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   const handleOnPress = (e) => {
-    console.log(e.key);
 
-    if (e.key === "Enter") {
-      navigate("/test2");
+        if (e.key === 'Enter') {
+            navigate("/fakeCaptcha");
+        }
+
     }
-  };
+  // };
 
   const handleHover = () => {
     setHoverNumber(hoverNumber + 1);
-    console.log(hoverNumber);
 
     if (hoverNumber >= 10) {
       setSentence("You dummy just press Enter!");
@@ -144,6 +143,6 @@ const LandingPage = () => {
       <div className="text-center">{sentence}</div>
     </div>
   );
-};
+}
 
 export default LandingPage;

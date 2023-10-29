@@ -4,8 +4,6 @@ import  { useState } from 'react';
 let rickBool = false;
 let rolledBool = false;
 
-// DELETE LATER: remove console.log(), link with RickRollVideo
-
 const EndingTilesRow = ({ array, originalArray, setSolved }) => {
     const areArraysEqual = (arr1, arr2) => {
         if (arr1.length !== arr2.length) {
@@ -30,7 +28,6 @@ const EndingTilesRow = ({ array, originalArray, setSolved }) => {
         }
 
         if (rickBool && rolledBool) {
-            console.log("done");
             setSolved(true);
         }
     }

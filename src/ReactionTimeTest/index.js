@@ -62,7 +62,7 @@ const ReactionTime = () => {
 
     const handleClick = () => {
 
-        navigate("/test"); // link to next page
+        navigate("/slidingPuzzle"); // link to next page
 
     };
 

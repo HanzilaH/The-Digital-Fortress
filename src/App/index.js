@@ -4,7 +4,6 @@ import {
     createBrowserRouter
 } from "react-router-dom";
 import MathsQuestion from "../MathsQuestion";
-import PuzzleTemplate from "../PuzzleTemplate";
 import FakeCaptcha from "../FakeCaptcha";
 import EndingTiles from "../EndingTiles";
 import ReactionTime from "../ReactionTimeTest";
@@ -13,72 +12,62 @@ import ConvolutedMaths from "../ConvolutedMaths";
 import LandingPage from "../LandingPage";
 import Maze from "../Maze";
 import PreviousFunFact from "../PreviousFunFact";
-import RickRollVideo from "../RickRollVideo";
 import DeleteRandomCharacter from "../DeleteRandomCharacters";
 
 import PillarCatching from "../PillarCatching";
 
 const routes = [
     {
-        path: "/test",
-        element: <PuzzleTemplate title="test" nextStage="/test" alwaysShowButtons={false} isSolved={true} puzzle={<div>testtest</div>} />
+        path: "/",
+        element: <LandingPage/>
     },
     {
         path: "/fakeCaptcha",
         element: <FakeCaptcha />
     },
     {
-        path: "/math",
-        element: <MathsQuestion />
-    },
-    {
-        path: "/EndingTiles",
-        element: <EndingTiles />
+        path: "/maze",
+        element: <Maze/>
     },
     {
         path: "/reactionTime",
         element: <ReactionTime />
     },
     {
-        path: "/SlidingPuzzle",
+        path: "/maths",
+        element: <MathsQuestion />
+    },
+    {
+        path: "/slidingPuzzle",
         element: <SlidingPuzzle />
     },
     {
-        path: "/ConvolutedMaths",
+        path: "/convolutedMaths",
         element: <ConvolutedMaths />
     },
     {
-        path: "/landingPage",
-        element: <LandingPage/>
-    },
-    {
-        path: "/maze",
-        element: <Maze/>
-    },
-    {
-        path: "/PreviousFunFact",
-        element: <PreviousFunFact />
-    },
-    {
-        path: "/RickRollVideo",
-        element: <RickRollVideo />
-    },
-    {
-        path: "/DeleteRandomCharacter",
+        path: "/deleteRandomCharacter",
         element: <DeleteRandomCharacter />
     },
     {
         path: "/pillarCatching",
         element: <PillarCatching />
+    },
+    {
+        path: "/previousFunFact",
+        element: <PreviousFunFact />
+    },
+    {
+        path: "/endingTiles",
+        element: <EndingTiles />
     }
 ]
 
-
 // for final
-// const router = createMemoryRouter(routes);
+const router = createMemoryRouter(routes);
 
 // for testing
-const router = createBrowserRouter(routes);
+// const router = createBrowserRouter(routes);
 
 const App = () => {
 

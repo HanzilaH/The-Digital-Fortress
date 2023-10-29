@@ -3,15 +3,15 @@ import PuzzleTemplate from "../PuzzleTemplate";
 import PreviousFunFactTile from "../PreviousFunFactTiles";
 import "./index.scss";
 import { useSelector } from "react-redux";
-
-// DELETE LATER: fix navigation, link fun fact with landing page
+import { useNavigate } from "react-router";
 
 const PreviousFunFact = () => {
 
     const funFactIndex = useSelector((state) => state.index.index);
     const FUN_FACTS = useSelector((state) => state.index.FUN_FACTS);
     const [correctAnswer, setSelectedQuestion] = useState(funFactIndex);
-    const [solved, setSolved] = useState(false);
+
+    const navigate = useNavigate();
 
     const getArray = () => {
         const newSet = new Set();
@@ -26,15 +26,14 @@ const PreviousFunFact = () => {
 
 
     const handleClick = (index, idx) => {
-        console.log(index);
-        console.log(correctAnswer);
         if (index === correctAnswer) {
-            console.log(index);
             // setSolved(true);// go to next page
             setIndexState(idx);
+            navigate("/endingTiles");
         }
         else {
             // Main Page
+            navigate("/");
         }
     };
 

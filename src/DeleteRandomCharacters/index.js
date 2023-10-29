@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import './index.scss';
 import PuzzleTemplate from "../PuzzleTemplate";
 
@@ -24,7 +24,7 @@ const DeleteRandomCharacter = () => {
             setSolved(true);
             return;
         }
-        if (count % 30 == 0) {
+        if (count % 30 === 0) {
             deleteCharacters();
         }
     };
@@ -44,7 +44,7 @@ const DeleteRandomCharacter = () => {
     };
 
     return (
-        <PuzzleTemplate title="Lets see how fast you can type" isSolved={solved} puzzle={
+        <PuzzleTemplate title="Lets see how fast you can type" nextStage="/pillarCatching" isSolved={ solved } puzzle={
             <div className="deleteRandom">
                 <div>
                     <p>

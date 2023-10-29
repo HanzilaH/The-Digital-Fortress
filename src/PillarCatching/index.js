@@ -1,10 +1,7 @@
 import React from 'react'
 import './index.scss'
 import { useState, useEffect } from 'react';
-import { logDOM } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom';
-
-// import Pillar from './Pillar';
 
 const gear = require('../assets/gear1.png')
 
@@ -12,27 +9,14 @@ const PillarCatching = () => {
 
   const navigate = useNavigate();
 
-    // const [pillars, setPillars] = useState([]);
-
-    // const handleMouseMove = (e) => {
-    //   const { clientX, clientY } = e;
-    //   setPillars([{ x: clientX - 10, y: clientY - 50 }]);
-    // };
-    // const [pillar, setPillar] = useState(null)
     const [message, setMessage] = useState("MIND THE PILLARS!!!")
     const [liveLeft, setLivesLeft] = useState(5)
-    const [pillarArray, setPillarArray] = useState([false,false,false,false,false, false, false, false, false, false]) 
+    const [pillarArray, setPillarArray] = useState([false,false,false,false,false, false, false, false, false, false])
     const [showColumn, setShowColumn] = useState(true)
-
 
     const [buttonPosition, setButtonPosition] = useState({ left: '50%', top: '50%' });
 
-
     const [mouseCoords, setMouseCoords] = useState({ x: 0, y: 0 });
-
-
-
-
 
     useEffect(() => {
       const intervalId = setInterval(() => {
@@ -47,12 +31,12 @@ const PillarCatching = () => {
       const newTop = Math.random() * (screenHeight - 30); // 30 is the button height
       setButtonPosition({ left: `${newLeft}px`, top: `${newTop}px` });
 
-      }, 1000); 
-    
+      }, 1000);
+
       return () => {
         clearInterval(intervalId);
       };
-    }, [pillarArray]); 
+    }, [pillarArray]);
 
 
     const handlePillarMouseOver = (e)=>{
@@ -67,7 +51,7 @@ const PillarCatching = () => {
 
     }
 
-  
+
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
@@ -75,7 +59,7 @@ const PillarCatching = () => {
   };
 
   const handleNextStage =()=>{
-console.log("next");
+    navigate("/previousFunFact");
   }
 
 

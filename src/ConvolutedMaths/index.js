@@ -49,7 +49,7 @@ const ConvolutedMaths = () => {
         event.preventDefault();
 
         if (text === selectedQuestion.answer) {
-            navigate("/test");
+            navigate("/deleteRandomCharacter");
         }
         else if (retries > 0) {
             const oldQuestion = selectedQuestion;

@@ -115,7 +115,7 @@ const SlidingPuzzle = () => {
   const [solved, setSolved] = useState(false);
 
   return (
-    <PuzzleTemplate title = "Sliding Puzzle" isSolved = { solved } puzzle = {
+    <PuzzleTemplate title="Sliding Puzzle" nextStage="/convolutedMaths" isSolved={ solved } puzzle = {
       <div className="Model">
         <div className="board-row">
           <SlidingPuzzleTile value={contents[0][0].face} onTileClick={() => handleClick(0, 0)} />
