@@ -1,8 +1,11 @@
 import React from 'react'
 import './index.scss'
 import { useState, useEffect } from 'react';
+import { logDOM } from '@testing-library/react';
 
 // import Pillar from './Pillar';
+
+const gear = require('../assets/gear1.png')
 
 const PillarCatching = () => {
 
@@ -13,97 +16,122 @@ const PillarCatching = () => {
     //   setPillars([{ x: clientX - 10, y: clientY - 50 }]);
     // };
     // const [pillar, setPillar] = useState(null)
-    const [pillarArray, setPillarArray] = useState([false,false,false,false,false]) 
+    const [message, setMessage] = useState("MIND THE PILLARS!!!")
+    const [liveLeft, setLivesLeft] = useState(5)
+    const [pillarArray, setPillarArray] = useState([false,false,false,false,false, false, false, false, false, false]) 
+    const [showColumn, setShowColumn] = useState(true)
 
-    const [pillarCoord, setPillarCoord] = useState({ x: 0, y: 0 })
+
+    const [buttonPosition, setButtonPosition] = useState({ left: '50%', top: '50%' });
+
+
     const [mouseCoords, setMouseCoords] = useState({ x: 0, y: 0 });
 
 
 
 
-    useEffect(()=>{
-
-
-
-      // const items = [pillarCoord.x, window.innerWidth];
-      // const itemsT = [pillarCoord.y, window.innerHeight];
-
-      // const randomIndex = Math.floor(Math.random() * items.length);
-
-      // // console.log(items[randomIndex]
-      //   // );
-      // setPillar(null)
-      // setPillar(<Pillar x={items[randomIndex]} y = {itemsT[randomIndex % 2]} left={false} top={false} ></Pillar>)
-      const verticalPositionRatio = pillarCoord.y / window.innerHeight;
-      let interval = 0
-
-      if (verticalPositionRatio <= 0.2) {
-        // setPillarArray(arr=>)
-        interval = 0;
-      } else if (verticalPositionRatio <= 0.4) {
-        interval = 1;
-      } else if (verticalPositionRatio <= 0.6) {
-        interval = 2;
-      } else if (verticalPositionRatio <= 0.8) {
-        interval = 3;
-      } else {
-        interval = 4;
-      }
-
-      console.log('interval is'+ interval);
-
-
-      setPillarArray((arr) =>{
-        console.log('undef here');
-        return arr.map((value, index) => (index === interval ? true : false))}
-      );
-
-    }, [pillarCoord])
 
     useEffect(() => {
       const intervalId = setInterval(() => {
-        const { x, y } = mouseCoords;
-        // console.log('hi');
-        setPillarCoord({ x, y });
+        const randomIndex = Math.floor(Math.random() * pillarArray.length);
+        const updatedArray = pillarArray.map((value, index) => index === randomIndex);
+        setPillarArray(updatedArray);
+        setShowColumn(e=>!e)
+
+        const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      const newLeft = Math.random() * (screenWidth - 30); // 30 is the button width
+      const newTop = Math.random() * (screenHeight - 30); // 30 is the button height
+      setButtonPosition({ left: `${newLeft}px`, top: `${newTop}px` });
+
       }, 1000); 
-  
+    
       return () => {
-        clearInterval(intervalId); // Clean up the interval when the component unmounts
+        clearInterval(intervalId);
       };
-    }, [mouseCoords]); 
+    }, [pillarArray]); 
+
+
+    const handlePillarMouseOver = (e)=>{
+      setLivesLeft(liveLeft-1);
+      if(liveLeft<=0){
+        //redirect here
+      }
+
+
+    }
+
   
 
-      // Event handler to update mouse coordinates
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
     setMouseCoords({ x: clientX, y: clientY });
   };
 
-  return (
-    <div className='pillar-container' onMouseMove={handleMouseMove}  >
-      <h1 >Mouse Coordinates: {pillarCoord.x}, {pillarCoord.y}</h1>
+  const handleNextStage =()=>{
+console.log("next");
+  }
+
+
+  const drawColumns =()=>{
+    return(
+      <div className=" d-flex flex-nowrap column-container
+      ">
+      {pillarArray.map((pillar, index) => (
+        <div
+          key={`column-${index}`}
+          onMouseOver={handlePillarMouseOver} // Removed unnecessary arrow function
+          className={`pillar-column ${pillar ? "grow-animation-column" : ""}`}
+        ></div>
+      ))}
+      </div>
+
+    )
+  }
+
+
+  const drawRows = ()=>{
+    return(
       <div className="
-        container">
-            <div className={`pillar-row ${pillarArray[0] ? "grow-animation" : ""}`}></div>
+      row-container">
+      {pillarArray.map((pillar, index) => (
+        <div
+          key={`row-${index}`}
+          onMouseOver={handlePillarMouseOver} // Removed unnecessary arrow function
+          className={`pillar-row ${pillar ? "grow-animation" : ""}`}
+        ></div>
+      ))}
+      </div>
+    )
 
-            <div className={`pillar-row ${pillarArray[1] ? "grow-animation" : ""}`}></div>
-            <div className={`pillar-row ${pillarArray[2] ? "grow-animation" : ""}`}></div>
-            <div className={`pillar-row ${pillarArray[3] ? "grow-animation" : ""}`}></div>
-            <div className={`pillar-row ${pillarArray[4] ? "grow-animation" : ""}`}></div>
-            {/* <div className={`pillar-row ${pillarArray[5] ? "grow-animation" : ""}`}></div> */}
+  }
 
+  return (
+<>
 
-        </div>
-
-        <div className='player'>
-
-        </div>
-      {
-        // <Pillar></Pillar>
-        // pillar
-      }
-
+    <div className='pillar-container' onMouseMove={handleMouseMove}  >
+    <div id="player" style={{ left: `${mouseCoords.x-15}px`, top: `${mouseCoords.y-15}px` }}>
     </div>
+
+
+    <button onClick={()=>handleNextStage()} className='pillar-catching-button' style={{ position: 'absolute', ...buttonPosition }}>
+        Next
+      </button>
+          {/* <h1 >Mouse Coordinates: {mouseCoords.x}, {mouseCoords.y}</h1> */}
+
+          {
+            showColumn? drawColumns()
+            :
+            drawRows()
+          }
+
+            <div className='pillar-catching-gear-1'><img src={gear}></img></div>
+            <div className='pillar-catching-gear-2'><img src={gear}></img></div>
+
+            <div className='pillar-catching-message'>{message}</div>
+
+        </div>
+      </>
   )
 }
 

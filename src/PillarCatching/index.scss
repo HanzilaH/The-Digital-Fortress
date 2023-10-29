@@ -1,14 +1,24 @@
-/* Pillar.css */
-.pillar {
+
+.pillar-container{
+  color: white;
+    background-color: #034441;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+
+#player {
   position: absolute;
-  width: 20px;
-  height: 0;
-  background-color: #ddb4b4;
-  // transition: height 2s ease; /* Smooth transition for height changes */
+  border: solid 1px #ccc;
+  width: 30px;
+
+  height: 30px; 
+  border-radius: 50%;  
 }
 
 .grow-animation {
-  animation: grow 0.9s ease-in-out; /* Animation named "grow" with a duration of 2 seconds and easing */
+  animation: grow 1s ease-in-out; /* Animation named "grow" with a duration of 2 seconds and easing */
 }
 
 @keyframes grow {
@@ -23,19 +33,113 @@
 .pillar-row{
   margin: 0;
   padding: 0;
-  height: 20vh;
+  height: 10vh;
   width: 0;
-  background-color: #ddb4b4;
+  background-color: #01a9a4;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 9;
 
 }
 
   
 
-.pillar-container{
-  color: white;
-    background-color: black;
-    min-height: 100vh;
-    min-width: 100vw;
-    overflow: hidden;
-    position: relative;
+
+.pillar-column{
+  margin: 0;
+  padding: 0;
+  height: 0px;
+  width: 10vw;
+  background-color: #01a9a4;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 10;
+
+}
+
+
+.grow-animation-column {
+  animation: grow-column 1s ease-in-out; /* Animation named "grow" with a duration of 2 seconds and easing */
+}
+
+@keyframes grow-column {
+  from {
+    height: 0; /* Pillar starts with height 0 */
+  }
+  to {
+    height: 100vw; /* Pillar grows to 100px in height */
+  }
+}
+
+.pillar-catching-button{
+  background-color: #01a9a4; 
+  color: black; 
+  border: none; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  z-index: 7;
+
+
+
+}
+
+
+
+.pillar-catching-gear-1 {
+  position: absolute;
+  left: 20%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.pillar-catching-gear-1 img {
+  width: 100px;
+  height: 100px; 
+  transform-origin: center; 
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); /* Start rotation from 0 degrees */
+  }
+  to {
+    transform: rotate(360deg); /* Rotate the image 360 degrees */
+  }
+}
+
+
+.pillar-catching-gear-2 {
+  position: absolute;
+  left: 30%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.pillar-catching-gear-2 img {
+  width: 200px;
+  height: 200px; 
+  transform-origin: center; 
+  animation: rotate-two 3s linear infinite;
+}
+
+@keyframes rotate-two {
+  from {
+    transform: rotate(0deg); 
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+
+
+
+
+.pillar-catching-message{
+  
 }
