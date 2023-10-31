@@ -3,6 +3,7 @@ import {
     RouterProvider,
     createBrowserRouter
 } from "react-router-dom";
+import { useState, useEffect } from "react";
 import MathsQuestion from "../MathsQuestion";
 import FakeCaptcha from "../FakeCaptcha";
 import EndingTiles from "../EndingTiles";
@@ -13,7 +14,7 @@ import LandingPage from "../LandingPage";
 import Maze from "../Maze";
 import PreviousFunFact from "../PreviousFunFact";
 import DeleteRandomCharacter from "../DeleteRandomCharacters";
-
+import MobileError from "../MobileError";
 import PillarCatching from "../PillarCatching";
 
 const routes = [
@@ -71,11 +72,21 @@ const router = createMemoryRouter(routes);
 
 const App = () => {
 
+    // to prevent the app from running on smaller screens
+    const [showMobileError, setShowMobileError] = useState(false);
+    useEffect(() => {
+        (window.innerHeight <= 600 || window.innerWidth <= 800)?
+            setShowMobileError(true):
+            setShowMobileError(false);
+        
+    }, []); 
+
+
+    
     return (
-
-        <RouterProvider router={router} />
-
+        showMobileError ? <MobileError /> : <RouterProvider router={router} />
     );
+    
 
 }
 
