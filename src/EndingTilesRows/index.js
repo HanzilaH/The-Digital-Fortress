@@ -58,7 +58,7 @@ const EndingTilesRow = ({ array, originalArray, setSolved }) => {
                             {(provided) => (
                                 <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                 <p>
-                                    { hint }
+                                    { name }
                                 </p>
                                 </li>
                             )}
