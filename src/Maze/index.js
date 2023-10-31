@@ -19,6 +19,7 @@ const Maze = () => {
     let [endSquare, setEndSquare] = useState([0, 0]);
     let [isSolved, setIsSolved] = useState(false);
     let [controlsFlipped, setControlsFlipped] = useState(true);
+    let [title, setTitle] = useState("Click inside the maze to start");
 
     // initialise maze
     useEffect(() => {
@@ -668,6 +669,7 @@ const Maze = () => {
     // }
 
     const handleKeyDown = (e) => {
+        setTitle("Reach the Exit");
 
         if ((!controlsFlipped && e.key === "ArrowDown") || (controlsFlipped && e.key === "ArrowUp")) {
 
@@ -894,7 +896,7 @@ const Maze = () => {
     }
 
     return (
-        <PuzzleTemplate title="Click inside the maze to start" nextStage="/reactionTime" isSolved={ isSolved } puzzle={
+        <PuzzleTemplate title= { title }  nextStage="/reactionTime" isSolved={ isSolved } puzzle={
             <div className="maze-grid" tabIndex="0" onKeyDown={ (e) => {handleKeyDown(e)} }>
                 {
                     squares.map((value, outerIndex) => (

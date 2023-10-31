@@ -32,7 +32,6 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
 
     const RickRollVideo = ()=>{
         setShowVideo(true)
-        
     }
     if(showVideo){
         return (
@@ -41,6 +40,7 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
                 autoPlay
                 src={videoSource}
                 style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
+                volume={0.1}
             />
         )
     }
@@ -104,13 +104,12 @@ const PuzzleTemplate = ({ title = "", nextStage = "/", alwaysShowButtons = false
                     </>
                 ) : (
                     <>
-
-                    <div>
-                        <button className="button-style" onClick={() => {handleClick("/")}}><span>Restart</span></button>
+                        <div>
+                            <button className="button-style" onClick={() => {handleClick("/")}}><span>Restart</span></button>
                         </div>
-                    <div>
-                    <button className="button-style" onClick={() => {handleClick("/")}}><span>Next Stage</span></button>
-                    </div>
+                        <div>
+                            <button className="button-style" onClick={() => {handleClick("/")}}><span>Next Stage</span></button>
+                        </div>
                     </>
 
                 )

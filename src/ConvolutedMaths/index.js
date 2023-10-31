@@ -63,7 +63,7 @@ const ConvolutedMaths = () => {
     };
 
     return (
-        <PuzzleTemplate title="Can you solve maths?" puzzle={
+        <PuzzleTemplate title="How good are you at maths?" puzzle={
             <div className="mathQuestion">
                 <div>
                     {selectedQuestion.question}
@@ -74,8 +74,9 @@ const ConvolutedMaths = () => {
                         type="text"
                         value={text}
                         onChange={handleInputChange}
-                        placeholder="Type something here"
+                        placeholder="Answer here"
                     />
+                    <br></br>
                     <button className="submit-button" type="submit">Submit</button>
                 </form>
             </div>

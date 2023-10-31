@@ -15,12 +15,13 @@ const DeleteRandomCharacter = () => {
     const [count, setCount] = useState(0);
     const [solved, setSolved] = useState(false);
     const [selectedPara, setSelectedPara] = useState(Math.floor(Math.random() * 5));
+    const [title, setTitle] = useState("Type the whole thing, let's see your speed");
 
     const handleTextAreaChange = (event) => {
         const targetText = event.target.value;
         setCount(count + 1);
         setText(targetText);
-        if (count > 300) {
+        if (count > 269) {
             setSolved(true);
             return;
         }
@@ -40,11 +41,12 @@ const DeleteRandomCharacter = () => {
     };
 
     const handlePaste = (e) => {
+        setTitle("Oops! Thought we didn't think of it? Keep typing ;)")
         e.preventDefault();
     };
 
     return (
-        <PuzzleTemplate title="Lets see how fast you can type" nextStage="/pillarCatching" isSolved={ solved } puzzle={
+        <PuzzleTemplate title= { title } nextStage="/pillarCatching" isSolved={ solved } puzzle={
             <div className="deleteRandom">
                 <div>
                     <p>

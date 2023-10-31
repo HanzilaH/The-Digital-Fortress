@@ -27,7 +27,6 @@ const PreviousFunFact = () => {
 
     const handleClick = (index, idx) => {
         if (index === correctAnswer) {
-            // setSolved(true);// go to next page
             setIndexState(idx);
             navigate("/endingTiles");
         }
@@ -40,7 +39,7 @@ const PreviousFunFact = () => {
     const [indexState, setIndexState] = useState()
 
     return (
-        <PuzzleTemplate title="Do you remember the fun fact?" puzzle={
+        <PuzzleTemplate title="Wait! You remember the fun fact from first page?" puzzle={
             <div className="fun-facts">
                 {myArray.map((item, index) => (
                     <PreviousFunFactTile funFact={ FUN_FACTS[item] } onTileClick={() => handleClick(item, index)} key={index} isCorrect={indexState === index} />

@@ -16,8 +16,8 @@ const Button = ({ onHover }) => {
 
   const moveButton = () => {
     const newPosition = {
-      x: Math.floor(Math.random() * 95) + 1,
-      y: Math.floor(Math.random() * 95) + 1,
+      x: Math.floor(Math.random() * 69) + 1,
+      y: Math.floor(Math.random() * 69) + 1,
     };
 
     onHover();
@@ -104,7 +104,7 @@ const LandingPage = () => {
   );
   dispatch(SET_INDEX(index));
   const [hoverNumber, setHoverNumber] = useState(0);
-  const [sentence, setSentence] = useState(FUN_FACTS[index]);
+  const [sentence, setSentence] = useState("Did you know?\n" + FUN_FACTS[index]);
 
   const navigate = useNavigate();
 
@@ -115,13 +115,12 @@ const LandingPage = () => {
         }
 
     }
-  // };
 
   const handleHover = () => {
     setHoverNumber(hoverNumber + 1);
 
     if (hoverNumber >= 10) {
-      setSentence("You dummy just press Enter!");
+      setSentence("You dummy, just press Enter!");
     }
   };
   return (
@@ -140,7 +139,7 @@ const LandingPage = () => {
       </div>
 
       <Button onHover={handleHover} />
-      <div className="text-center">{sentence}</div>
+      <div><pre className="text-center">{sentence}</pre></div>
     </div>
   );
 }
